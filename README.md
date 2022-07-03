@@ -1,3 +1,3 @@
 # Bootstrap
 
-[Pizzaria](https://viniciusmbezerra.gihub.io/Bootstrap/index.html)
+[Pizzaria](https://viniciusmbezerra.github.io/Bootstrap/index.html)
