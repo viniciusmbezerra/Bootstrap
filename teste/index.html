@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animacao</title>
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
     <style>
         :root {
             --boxColor: #0ff7;
@@ -21,6 +23,19 @@
             font-size: 75px;
             perspective: 10em;
             perspective-origin: var(--x) calc(var(--y) - 2em);
+        }
+        .joy {
+            position: absolute;
+            left: 80%;
+            top: 80%;
+            background: rgb(59, 59, 59);
+            border-radius: 100vmax;
+            padding: 20px;
+        }
+        .joy button {
+            margin: 0em;
+            padding: 5px;
+            display: inline-block;
         }
         .scene {
             position: relative;
@@ -66,12 +81,14 @@
 <div class="scene">
     <div class="floor"></div>
     <div class="cube">
-    <button onmousemove="direita()">Direita</button>
-    <button onmousemove="esquerda()">Esquerda</button>
-    <button onmousemove="cima()">Cima</button>
-    <button onmousemove="baixo()">Baixo</button>
-</div>
+    </div>
     <div class="ball"></div>
+</div>
+<div class="joy">
+    <button onmousemove="esquerda()"><span class="material-symbols-outlined">arrow_back</span></button>
+    <button onmousemove="direita()"><span class="material-symbols-outlined">arrow_forward</span></button><br>
+    <button onmousemove="cima()"><span class="material-symbols-outlined">north</span></button>
+    <button onmousemove="baixo()"><span class="material-symbols-outlined">arrow_downward</span></button>
 </div>
 
 
