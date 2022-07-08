@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animacao</title>
+
+    <style>
+        :root {
+            --boxColor: #0ff7;
+            --x: 50%;
+            --y: 50%;
+        }
+        body {
+            background-color: #000;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 75px;
+            perspective: 10em;
+            perspective-origin: var(--x) calc(var(--y) - 2em);
+        }
+        .scene {
+            position: relative;
+            transform-style: preserve-3d;
+        }
+        .ball {
+            width: 1em;
+            height: 1em;
+            border-radius: 50%;
+            background-color: lightblue;
+    
+            position: absolute;
+            left: -.5em;
+            bottom: 1em;
+        }
+        .cube {
+            width: 2em;
+            height: 2em;
+            background: var(--boxColor);
+    
+            position: absolute;
+            top: -1em;
+            left: -1em;
+        }
+        .floor {
+            position: absolute;
+            top: 1em;
+            transform: translate(-50%, -50%)
+                       rotateX(90deg);
+            width: 15em;
+            height: 15em;
+            background-image: repeating-conic-gradient(
+                from 45deg, 
+                #111 0deg 90deg, 
+                #222 90deg 180deg);
+            background-size: 1em 1em;
+        }
+    </style>
+    
+</head>
+<body>
+    
+<div class="scene">
+    <div class="floor"></div>
+    <div class="cube">
+    <button onclick="direita()">Direita</button>
+    <button onclick="cima()">Cima</button>
+</div>
+    <div class="ball"></div>
+</div>
+
+
+<script>
+    document.cookie = 'x=50; path=/';
+
+    function direita() {
+        var x = document.cookie;
+        x = x[0].replace("x=", "");
+        x = x.replace("%", "");
+        x = parseInt(x);
+        alert(x);
+
+        x +=1;
+        document.body.style.setProperty('--x', x+'%');
+
+        document.cookie = 'x='+x+'%';
+    }
+    function cima() {
+        var y = document.cookie;
+        y = y.Split(';');
+        y = y[1].replace(" y=", "");
+        y = y.replace("%", "");
+        y = parseInt(y);
+
+        y +=1;
+        document.body.style.setProperty('--y', y+'%');
+
+        document.cookie = 'y='+y+'%';
+    }
+</script>
+</body>
+</html>
