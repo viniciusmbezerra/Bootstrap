@@ -66,39 +66,51 @@
 <div class="scene">
     <div class="floor"></div>
     <div class="cube">
-    <button onclick="direita()">Direita</button>
-    <button onclick="cima()">Cima</button>
+    <button onmousemove="direita()">Direita</button>
+    <button onmousemove="esquerda()">Esquerda</button>
+    <button onmousemove="cima()">Cima</button>
+    <button onmousemove="baixo()">Baixo</button>
 </div>
     <div class="ball"></div>
 </div>
 
 
 <script>
-    document.cookie = 'x=50; path=/';
+    localStorage.setItem('x', '50');
+    localStorage.setItem('y', '50');
+    const sensibilidade = 5;
 
     function direita() {
-        var x = document.cookie;
-        x = x[0].replace("x=", "");
-        x = x.replace("%", "");
-        x = parseInt(x);
-        alert(x);
+        var x = parseInt(localStorage.getItem('x'));
 
-        x +=1;
+        x +=sensibilidade;
         document.body.style.setProperty('--x', x+'%');
 
-        document.cookie = 'x='+x+'%';
+        localStorage.setItem('x', String(x));
+    }
+    function esquerda() {
+        var x = parseInt(localStorage.getItem('x'));
+
+        x -=sensibilidade;
+        document.body.style.setProperty('--x', x+'%');
+
+        localStorage.setItem('x', String(x));
     }
     function cima() {
-        var y = document.cookie;
-        y = y.Split(';');
-        y = y[1].replace(" y=", "");
-        y = y.replace("%", "");
-        y = parseInt(y);
+        var y = parseInt(localStorage.getItem('y'));
 
-        y +=1;
+        y -=sensibilidade;
         document.body.style.setProperty('--y', y+'%');
 
-        document.cookie = 'y='+y+'%';
+        localStorage.setItem('y', String(y));
+    }
+    function baixo() {
+        var y = parseInt(localStorage.getItem('y'));
+
+        y +=sensibilidade;
+        document.body.style.setProperty('--y', y+'%');
+
+        localStorage.setItem('y', String(y));
     }
 </script>
 </body>
